@@ -29,17 +29,17 @@ Usage
 ::
 
     # patch every VSSUI.dll found under .\\vssui_dll (default)
-    python patch.py
+    python patch_vssui.py
 
     # patch one file, writing VSSUI.patched.dll next to it
-    python patch.py vssui_dll\\17763.1\\VSSUI.dll
+    python patch_vssui.py vssui_dll\\17763.1\\VSSUI.dll
 
     # choose the output, or patch in place
-    python patch.py vssui_dll\\26100.5074\\VSSUI.dll -o out\\VSSUI.dll
-    python patch.py vssui_dll\\20348.1\\VSSUI.dll --in-place
+    python patch_vssui.py vssui_dll\\26100.5074\\VSSUI.dll -o out\\VSSUI.dll
+    python patch_vssui.py vssui_dll\\20348.1\\VSSUI.dll --in-place
 
     # just report what would be done
-    python patch.py --dry-run
+    python patch_vssui.py --dry-run
 
 Notes
 -----
@@ -300,7 +300,7 @@ def process(path, out_path, in_place, dry_run, show_info):
 
 def build_parser():
     p = argparse.ArgumentParser(
-        prog="patch.py",
+        prog="patch_vssui.py",
         description="Patch vssui.dll so the Server-only 'Shadow Copies' "
                     "property page is created on client Windows.",
         epilog="See README.md for the full story.",
@@ -320,7 +320,7 @@ def build_parser():
     p.add_argument("-q", "--quiet", action="store_true",
                    help="only print the result lines")
     p.add_argument("-V", "--version", action="version",
-                   version=f"Shadow Copy Unlocker patch.py {__version__}")
+                   version=f"Shadow Copy Unlocker patch_vssui.py {__version__}")
     return p
 
 
